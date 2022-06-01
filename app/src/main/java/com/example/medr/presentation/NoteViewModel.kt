@@ -55,6 +55,6 @@ class NoteViewModel(private val dao : NoteDao):ViewModel() {
 }
 class NoteViewModelFactory(private val dao : NoteDao):ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return modelClass.getConstructor(MusicDao::class.java).newInstance(dao)
+        return modelClass.getConstructor(NoteDao::class.java).newInstance(dao)
     }
 }

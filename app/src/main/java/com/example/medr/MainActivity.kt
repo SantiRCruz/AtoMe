@@ -2,6 +2,7 @@ package com.example.medr
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -9,7 +10,7 @@ import com.example.medr.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
-    private lateinit var  navController : NavController
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -20,5 +21,20 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         binding.bottomNavigationView.setupWithNavController(navController)
+
+        observeDestination()
+    }
+
+    private fun observeDestination() {
+        navController.addOnDestinationChangedListener { n,d,a ->
+            when(d.id){
+                R.id.musicFragment -> {binding.bottomNavigationView.visibility = View.VISIBLE}
+                R.id.notesFragment -> {binding.bottomNavigationView.visibility = View.VISIBLE}
+                R.id.photosFragment -> {binding.bottomNavigationView.visibility = View.VISIBLE}
+                R.id.musicCreateFragment -> {binding.bottomNavigationView.visibility = View.GONE}
+                R.id.photoCreateFragment -> {binding.bottomNavigationView.visibility = View.GONE}
+                R.id.noteCreateFragment -> {binding.bottomNavigationView.visibility = View.GONE}
+            }
+        }
     }
 }

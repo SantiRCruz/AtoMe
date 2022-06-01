@@ -7,17 +7,50 @@
 
     <fragment
         android:id="@+id/notesFragment"
-        android:name="com.example.medr.ui.NotesFragment"
+        android:name="com.example.medr.ui.notes.NotesFragment"
         android:label="fragment_notes"
-        tools:layout="@layout/fragment_notes" />
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_noteCreateFragment"
+            app:destination="@id/noteCreateFragment" />
+    </fragment>
     <fragment
         android:id="@+id/musicFragment"
-        android:name="com.example.medr.ui.MusicFragment"
+        android:name="com.example.medr.ui.music.MusicFragment"
         android:label="fragment_music"
-        tools:layout="@layout/fragment_music" />
+        tools:layout="@layout/fragment_music" >
+        <action
+            android:id="@+id/action_musicFragment_to_musicCreateFragment"
+            app:destination="@id/musicCreateFragment" />
+        <action
+            android:id="@+id/action_musicFragment_self"
+            app:destination="@id/musicFragment" />
+    </fragment>
     <fragment
         android:id="@+id/photosFragment"
-        android:name="com.example.medr.ui.PhotosFragment"
+        android:name="com.example.medr.ui.photos.PhotosFragment"
         android:label="fragment_photos"
-        tools:layout="@layout/fragment_photos" />
+        tools:layout="@layout/fragment_photos" >
+        <action
+            android:id="@+id/action_photosFragment_to_photoCreateFragment"
+            app:destination="@id/photoCreateFragment" />
+        <action
+            android:id="@+id/action_photosFragment_self"
+            app:destination="@id/photosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoCreateFragment"
+        android:name="com.example.medr.ui.photos.PhotoCreateFragment"
+        android:label="fragment_photo_create"
+        tools:layout="@layout/fragment_photo_create" />
+    <fragment
+        android:id="@+id/musicCreateFragment"
+        android:name="com.example.medr.ui.music.MusicCreateFragment"
+        android:label="fragment_music_create"
+        tools:layout="@layout/fragment_music_create" />
+    <fragment
+        android:id="@+id/noteCreateFragment"
+        android:name="com.example.medr.ui.notes.NoteCreateFragment"
+        android:label="fragment_note_create"
+        tools:layout="@layout/fragment_note_create" />
 </navigation>

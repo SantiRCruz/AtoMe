@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MusicFragment"
+    tools:context=".ui.music.MusicFragment"
     android:background="#FFF9F5">
 
     <ImageView
+        android:id="@+id/imageView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/img_14"
         android:layout_marginTop="-120dp"
+        android:src="@drawable/img_14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +28,37 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_photos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+    <ImageView
+        android:id="@+id/imgAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/img_17"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imgAdd"
+        app:layout_constraintEnd_toEndOf="@+id/imgAdd"
+        app:layout_constraintStart_toStartOf="@+id/imgAdd"
+        app:layout_constraintTop_toTopOf="@+id/imgAdd"
+        app:srcCompat="@drawable/ic_baseline_add_to_photos_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

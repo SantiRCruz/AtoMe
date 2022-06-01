@@ -11,7 +11,7 @@ import com.example.medr.data.models.ImageEntity
 import com.example.medr.data.models.MusicEntity
 import com.example.medr.data.models.NoteEntity
 
-@Database(entities = [ImageEntity::class, MusicEntity::class, NoteEntity::class], version = 1)
+@Database(entities = [ImageEntity::class, MusicEntity::class, NoteEntity::class], version = 2)
 abstract class AppDatabase:RoomDatabase() {
 
     abstract fun ImageDao(): ImageDao
@@ -21,30 +21,13 @@ abstract class AppDatabase:RoomDatabase() {
     companion object {
         var INSTANCE: AppDatabase? = null
 
-        fun getImageDb(context: Context):AppDatabase{
-            INSTANCE = INSTANCE ?: Room.databaseBuilder(
-                context,
+        fun getDB(context: Context):AppDatabase{
+            INSTANCE = INSTANCE?: Room.databaseBuilder(
+                context.applicationContext,
                 AppDatabase::class.java,
-                "image_table"
+                "general_table"
             ).build()
             return INSTANCE!!
         }
-        fun getMusicDb(context: Context):AppDatabase{
-            INSTANCE = INSTANCE ?: Room.databaseBuilder(
-                context,
-                AppDatabase::class.java,
-                "music_table"
-            ).build()
-            return INSTANCE!!
-        }
-        fun getNoteDb(context: Context):AppDatabase{
-            INSTANCE = INSTANCE ?: Room.databaseBuilder(
-                context,
-                AppDatabase::class.java,
-                "note_table"
-            ).build()
-            return INSTANCE!!
-        }
-
     }
 }
